@@ -3,7 +3,7 @@ from config import API_KEY
 
 import requests
 
-def get_10y_bond_yield(API_KEY: str, country: str) -> float:
+def get_10y_bond_yield(country: str) -> float:
     # Define FRED series IDs for different countries
     series_ids = {
         "US 10Y": "DGS10",         # 10-Year Treasury Constant Maturity Rate for the US
@@ -29,6 +29,3 @@ def get_10y_bond_yield(API_KEY: str, country: str) -> float:
     except KeyError:
         raise ValueError("API response doesn't contain expected data. Please check the API key and response format.")
 
-# Example use
-yield_10y = get_10y_bond_yield(API_KEY, "US 10Y")
-print(f"10-Year Bond Yield: {yield_10y * 100:.2f}%")
